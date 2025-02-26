@@ -1,0 +1,19 @@
+
+.card .overlay{
+    /* background-color: #00000042; */
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+.card:hover .overlay{
+    display: block !important;
+    color: #fcb800 !important;
+    transition: all 0.5s ease-in-out;
+}
+.card .overlay .btn {
+    width: 50px !important;
+    height: 50px !important;
+    text-align: center !important;
+}
+.card .overlay .overlay-content{
+    width: max-content !important;
+}

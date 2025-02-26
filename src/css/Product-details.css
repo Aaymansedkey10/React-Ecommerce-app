@@ -1,0 +1,21 @@
+.product-details-container .card-img-top {
+    height: -webkit-fill-available;
+    width: 100% !important;
+}
+.product-details-container .carousel .carousel-inner .carousel-item img{
+    height: 70vh !important;
+    object-fit: contain;
+  }
+
+.product-details-container  .carousel-indicators{
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+   .product-details-container .carousel-control-next-icon, .carousel-control-prev-icon {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+}
+  

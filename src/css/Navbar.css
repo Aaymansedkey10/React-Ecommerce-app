@@ -1,0 +1,29 @@
+.navbar-controller{
+    background-color: #fcb800 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+.navbar-controller .navbar-logo {
+    width: 100px !important;
+}
+.navbar-controller .form-select{
+    background-color: #fcb800 !important;
+    border: none !important;
+    width: max-content !important;
+}
+.count-in-cart{
+    display: inline;
+    padding: 5px 10px !important;
+}
+.total-price-in-cart{
+    
+}
+.nav-link:focus-visible {
+    outline: 0;
+    box-shadow: none !important;
+}
+/* 
+.nav-link:focus{
+    color: #fff !important;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    
+} */

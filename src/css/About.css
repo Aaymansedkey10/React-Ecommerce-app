@@ -1,0 +1,9 @@
+.about-card .card-body{
+    position: absolute;
+    background-color: #755706a1 !important;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+.about-card:hover .card-body{
+    display: flex !important;
+}
