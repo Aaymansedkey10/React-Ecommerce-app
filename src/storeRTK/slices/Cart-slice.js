@@ -43,17 +43,13 @@ export const cartSlice = createSlice ({
             console.log(action.payload);
             const productFind = state.find((pro)=>pro.id === action.payload.id);
             if(productFind){
-                if(productFind.quantity > 1){
-                    productFind.quantity += 1;
-                }
+                productFind.quantity += 1;
             }
         },
         decrementQuantity:(state , action)=>{
             const productFind = state.find((pro)=>pro.id === action.payload.id);
             if(productFind){
-                if(productFind > 1){
                     productFind.quantity -= 1;
-                }
             }
         },
         clearCart:(state , action)=>{ 
