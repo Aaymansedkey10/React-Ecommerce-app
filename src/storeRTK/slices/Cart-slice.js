@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Swal from 'sweetalert2' ;
 import withReactContent from 'sweetalert2-react-content';
-const MySwal = withReactContent(Swal);
 
 
 export const cartSlice = createSlice ({
@@ -32,6 +31,7 @@ export const cartSlice = createSlice ({
                     showConfirmButton:false,
                 });
                 state.push(productClone);
+                localStorage.setItem("cart" ,JSON.stringify(state));
             }           
         },
         deleteProduct: (state, action) => {
@@ -39,20 +39,22 @@ export const cartSlice = createSlice ({
             if (productFind) {
               state.splice(state.indexOf(productFind), 1);
             }
-        }
-        
-        ,
+        },
         incrementQuantity:(state , action)=>{
             console.log(action.payload);
             const productFind = state.find((pro)=>pro.id === action.payload.id);
             if(productFind){
-                productFind.quantity += 1;
+                if(productFind.quantity > 1){
+                    productFind.quantity += 1;
+                }
             }
         },
         decrementQuantity:(state , action)=>{
             const productFind = state.find((pro)=>pro.id === action.payload.id);
             if(productFind){
-                productFind.quantity -= 1;
+                if(productFind > 1){
+                    productFind.quantity -= 1;
+                }
             }
         },
         clearCart:(state , action)=>{ 

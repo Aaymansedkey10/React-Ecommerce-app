@@ -62,7 +62,7 @@ export const Contact = () => {
     };
 
     return (
-        <Container fluid>
+        <Container fluid calssName="w-100">
             <div className="row py-3">
                 <div className="col-12">
                     <h1 className="text-center fw-bold">Contact Us</h1>

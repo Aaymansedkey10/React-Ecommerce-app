@@ -13,7 +13,7 @@ import { Contact } from './pages/Contact';
 
 function App() {
   return (
-    <div className="App" id="navbar-controller">
+    <div className="App w-100">
        <NavBar />
        <Routes>
         <Route path='/' element={<Home />} />

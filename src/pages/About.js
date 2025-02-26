@@ -7,11 +7,10 @@ import { Container } from "react-bootstrap";
 export default function About(){
     const users = useSelector((state) => state.users);
     const dispatch = useDispatch();
-    console.log(users);
     
     useEffect(() => {
         dispatch(fetchUsers());
-    },[])
+    },[dispatch])
     return (
         <>
             <Container fluid>

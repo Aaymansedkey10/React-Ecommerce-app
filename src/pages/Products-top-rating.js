@@ -11,8 +11,8 @@ export const ProductsTopRating = () => {
 
     useEffect(()=>{
         dispatch(getProductsOfTopRating(4));
-    },[])
-    // console.log(productsTopRating);
+    },[dispatch])
+
     
     return (
         <>

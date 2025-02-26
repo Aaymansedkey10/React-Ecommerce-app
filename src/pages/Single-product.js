@@ -1,8 +1,9 @@
 import '../css/Single-product.css'
 import { useDispatch, useSelector } from "react-redux";
-import { addProduct, addProductToCard, incrementQuantity } from "../storeRTK/slices/Cart-slice";
+import { addProductToCard, incrementQuantity } from "../storeRTK/slices/Cart-slice";
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { SpinnerLoader } from './SpinnerLoader';
 
 export const SingleProduct = (props)=>{
   const product = props.product ;

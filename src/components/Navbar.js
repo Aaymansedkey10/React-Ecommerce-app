@@ -12,7 +12,7 @@ function NavBar () {
   const dispatch = useDispatch();  
   useEffect(()=>{
     dispatch(getCardProducts());
-  },[])
+  },[dispatch])
 
     return(
         <>

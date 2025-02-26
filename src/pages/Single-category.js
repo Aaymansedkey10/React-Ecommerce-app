@@ -7,20 +7,6 @@ export  const SingleCategory = (props)=>{
     
     return(
         <>
-            {/* <div class="card">
-                <div className="d-flex">
-                    <div className="card-image">
-                        <img class="card-image" src={category.image} alt="Title" />
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">{category.name}</h4>
-                        <p class="card-text">category one</p>
-                        <p class="card-text">category two</p>
-                        <p class="card-text">category three</p>
-                        <p class="card-text">category four</p>
-                    </div>
-                </div>
-            </div> */}
             <Card className="card custom-card">
                 {/* <Card.Img variant="top" className="card-image" src={category.image} /> */}
                 <Card.Body>

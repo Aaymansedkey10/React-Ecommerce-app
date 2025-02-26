@@ -33,7 +33,7 @@ export default function ProductsList(){
     
     useEffect(()=>{
         dispatch(fetchProducts());
-    },[])
+    },[dispatch])
     
     return(
         <>
