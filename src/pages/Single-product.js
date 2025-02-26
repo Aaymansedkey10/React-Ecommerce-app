@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProductToCard, incrementQuantity } from "../storeRTK/slices/Cart-slice";
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { SpinnerLoader } from './SpinnerLoader';
 
 export const SingleProduct = (props)=>{
   const product = props.product ;
@@ -66,9 +65,6 @@ export const SingleProduct = (props)=>{
             </button>
           </div>
         </div>
-        {/* <div className={`discount position-absolute bg-danger text-white px-2 rounded-circle pt-2 px-2 ${product.rating > 4  ? "d-block" : "d-none"}`}>
-            <p>{product.discountPercentage}%</p>
-        </div> */}
       </div>
     </>
   );

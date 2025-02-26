@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Swal from 'sweetalert2' ;
-import withReactContent from 'sweetalert2-react-content';
 
 
 export const cartSlice = createSlice ({
