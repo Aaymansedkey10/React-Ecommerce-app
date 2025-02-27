@@ -6,7 +6,11 @@ export const cartSlice = createSlice ({
     initialState:[],
     name:"cardSlice",
     reducers:{
-        getCardProducts:(state , action)=>{            
+        getCardProducts:(state , action)=>{
+            const LocalStorageProducts = localStorage.getItem('cart');
+            if(LocalStorageProducts){
+                state = JSON.parse(LocalStorageProducts);
+            }     
             return state ;
         },
         addProductToCard:(state , action)=>{ 
@@ -37,6 +41,7 @@ export const cartSlice = createSlice ({
             const productFind = state.find((pro) => pro.id === action.payload.id);
             if (productFind) {
               state.splice(state.indexOf(productFind), 1);
+              localStorage.setItem("cart", JSON.stringify(state));
             }
         },
         incrementQuantity:(state , action)=>{
@@ -44,16 +49,24 @@ export const cartSlice = createSlice ({
             const productFind = state.find((pro)=>pro.id === action.payload.id);
             if(productFind){
                 productFind.quantity += 1;
+                localStorage.setItem("cart", JSON.stringify(state));
             }
         },
         decrementQuantity:(state , action)=>{
             const productFind = state.find((pro)=>pro.id === action.payload.id);
             if(productFind){
-                    productFind.quantity -= 1;
+                productFind.quantity -= 1;
+                localStorage.setItem("cart", JSON.stringify(state));
             }
         },
         clearCart:(state , action)=>{ 
-                return [];
+            const LocalStorageProducts = localStorage.getItem('cart');
+            if(LocalStorageProducts){
+                state = JSON.parse(LocalStorageProducts);
+                localStorage.removeItem('cart');
+                state = [] ;
+            }
+               return state;
         },
         getTotalPrice:(state , action)=>{            
             let total = 0;

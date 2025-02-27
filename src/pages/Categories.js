@@ -7,7 +7,6 @@ import { SingleProduct } from "./Single-product";
 import { SpinnerLoader } from "./SpinnerLoader"
 export const Categories = () => {
     const { category } = useParams();
-
     const dispatch = useDispatch();
     const productsOfCategory = useSelector((state) => state.products);
     useEffect(() => {
