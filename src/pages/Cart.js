@@ -46,6 +46,43 @@ export default function Cart(){
                 dispatch(clearCart());
             }})
     }
+
+    const handelDecrementQuantity = (product)=>{
+        if(product.quantity > 1){
+            dispatch(decrementQuantity(product));
+        }else{
+            Swal.fire({
+                title :"the limit is reached.",
+                text : " You can't decrement the quantity less than one, You can delete the product",
+                icon : "warning",
+                showConfirmButton: true,
+                confirmButtonColor: "#fcb800",
+                confirmButtonText: "Don't decrement",
+                showCancelButton: true,
+                cancelButtonColor: "#dc3545",
+                cancelButtonText: "Delete"
+            }).then((result)=>{
+                if(!result.isConfirmed){
+                    dispatch(deleteProduct(product));
+                }
+            })
+        }
+    }
+
+    const handelIncrementQuantity = (product)=>{
+        if(product.quantity < product.stock){
+            dispatch(incrementQuantity(product));
+        }else{
+            Swal.fire({
+                title :"the limit is reached",
+                text : ". You can't increment the quantity more than this Quantity",
+                icon : "warning",
+                showConfirmButton: true,
+                confirmButtonColor: "#fcb800",
+                confirmButtonText: "Ok"
+            })
+        }
+    }
     
     return(
         <>
@@ -86,9 +123,9 @@ export default function Cart(){
                                                     <p>{product.description}</p>
                                                     <p className="fw-bold">price = {product.price}$</p>
                                                     <div className="d-flex align-items-center">
-                                                        <button className="btn fw-bold m-0 fs-5 rounded-0 bg-dark text-white" onClick={() => dispatch(decrementQuantity(product))}> - </button>
+                                                        <button className="btn fw-bold m-0 fs-5 rounded-0 bg-dark text-white" onClick={() => handelDecrementQuantity(product)}> - </button>
                                                         <p className="p-2 m-0 mx-3 fw-bold">{product.quantity}</p>
-                                                        <button className="btn fw-bold m-0 fs-5 rounded-0 bg-dark text-white" onClick={() => dispatch(incrementQuantity(product))}> + </button>
+                                                        <button className="btn fw-bold m-0 fs-5 rounded-0 bg-dark text-white" onClick={() => handelIncrementQuantity(product)}> + </button>
                                                     </div>
                                                 </div>
                                                 <div className="card-footer d-flex flex-column">

@@ -29,7 +29,7 @@ export const cartSlice = createSlice ({
                       popup: 'animate__animated animate__fadeOutUp'
                     },
                     toast: true,
-                    position: 'top-end',
+                    position: 'top-start',
                     timer: 1000,
                     showConfirmButton:false,
                 });
@@ -60,13 +60,9 @@ export const cartSlice = createSlice ({
             }
         },
         clearCart:(state , action)=>{ 
-            const LocalStorageProducts = localStorage.getItem('cart');
-            if(LocalStorageProducts){
-                state = JSON.parse(LocalStorageProducts);
-                sessionStorage.removeItem('cart');
-                state = [] ;
-            }
-               return state;
+            localStorage.removeItem("cart"); 
+            sessionStorage.clear();
+            return state = [];
         },
         getTotalPrice:(state , action)=>{            
             let total = 0;
