@@ -11,6 +11,7 @@ import { Categories } from './pages/Categories';
 import { Contact } from './pages/Contact';
 
 
+
 function App() {
   return (
     <div className="App w-100">
@@ -19,8 +20,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About/>} />
         <Route path='/products' element={<ProductsList />} />
-          <Route path ="/products/:productId" element={<ProductDetails/>} />
-        {/* </Route> */}
+        <Route path ="/products/:productId" element={<ProductDetails/>} />
         <Route path ="/categories/:category" element={<Categories/>} />
         <Route path='/cart' element={<Cart/>} />
         <Route path='/contact' element={<Contact/>} />

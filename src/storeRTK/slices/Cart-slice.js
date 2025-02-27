@@ -7,9 +7,9 @@ export const cartSlice = createSlice ({
     name:"cardSlice",
     reducers:{
         getCardProducts:(state , action)=>{
-            const LocalStorageProducts = localStorage.getItem('cart');
-            if(LocalStorageProducts){
-                state = JSON.parse(LocalStorageProducts);
+            const storagedProducts = sessionStorage.getItem('cart');
+            if(storagedProducts){
+                state = JSON.parse(storagedProducts);
             }     
             return state ;
         },
@@ -34,36 +34,36 @@ export const cartSlice = createSlice ({
                     showConfirmButton:false,
                 });
                 state.push(productClone);
-                localStorage.setItem("cart" ,JSON.stringify(state));
+                sessionStorage.setItem("cart" ,JSON.stringify(state));
             }           
         },
         deleteProduct: (state, action) => {
             const productFind = state.find((pro) => pro.id === action.payload.id);
             if (productFind) {
               state.splice(state.indexOf(productFind), 1);
-              localStorage.setItem("cart", JSON.stringify(state));
+              sessionStorage.setItem("cart", JSON.stringify(state));
             }
         },
         incrementQuantity:(state , action)=>{
             console.log(action.payload);
             const productFind = state.find((pro)=>pro.id === action.payload.id);
-            if(productFind){
+            if(productFind && productFind.quantity > 0){
                 productFind.quantity += 1;
-                localStorage.setItem("cart", JSON.stringify(state));
+                sessionStorage.setItem("cart", JSON.stringify(state));
             }
         },
         decrementQuantity:(state , action)=>{
             const productFind = state.find((pro)=>pro.id === action.payload.id);
-            if(productFind){
+            if(productFind && productFind.quantity > 1){
                 productFind.quantity -= 1;
-                localStorage.setItem("cart", JSON.stringify(state));
+                sessionStorage.setItem("cart", JSON.stringify(state));
             }
         },
         clearCart:(state , action)=>{ 
             const LocalStorageProducts = localStorage.getItem('cart');
             if(LocalStorageProducts){
                 state = JSON.parse(LocalStorageProducts);
-                localStorage.removeItem('cart');
+                sessionStorage.removeItem('cart');
                 state = [] ;
             }
                return state;
@@ -72,10 +72,8 @@ export const cartSlice = createSlice ({
             let total = 0;
             state.forEach((pro)=>{
                 total += pro.price * pro.quantity;
-                return total;
             });
-            console.log(total);
-            
+            return total;
         }
     }
 }) 
