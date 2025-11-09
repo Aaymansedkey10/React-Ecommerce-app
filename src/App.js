@@ -27,7 +27,7 @@ function App() {
        </Routes>
        <Footer />
        <div className='back-to-top text-end'>
-        <button className="rounded btn custom-btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}><i className="fa fa-arrow-up"></i></button>
+        <button className="rounded btn custom-btn" aria-label="up to top button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}><i className="fa fa-arrow-up"></i></button>
        </div>
     </div>
   );

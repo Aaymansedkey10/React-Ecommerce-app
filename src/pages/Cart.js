@@ -142,7 +142,7 @@ export default function Cart(){
                     : (
                         <div className="row w-100">
                             <div className="col-12">
-                                <div className="d-flex flex-column align-items-center gap-3">
+                                <div className="d-flex flex-column align-items-center justify-content-center gap-3">
                                     <img src={emptyCart} className="empty-cart" alt="empty cart" />
                                     <Link to="/" className="btn custom-btn">Back to Home</Link>
                                 </div>
