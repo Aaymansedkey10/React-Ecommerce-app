@@ -14,7 +14,7 @@ export const ProductDetails = () => {
     const priceAfterDiscount = priceBeforeDiscount * (1 - product.discountPercentage / 100);
     useEffect(() => {
         dispatch(getSingleProduct(productId))
-    }, [productId])
+    }, [productId , dispatch])
     return (
         <>
             <Container fluid className="py-4 product-details-container">

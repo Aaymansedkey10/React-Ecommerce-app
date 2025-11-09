@@ -11,7 +11,7 @@ export const Categories = () => {
     const productsOfCategory = useSelector((state) => state.products);
     useEffect(() => {
         dispatch(getProductsByCategory(category))
-    }, [category]);
+    }, [category , dispatch]);
 
 
     return (
